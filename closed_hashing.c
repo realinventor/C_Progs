@@ -1,13 +1,15 @@
 #include<stdio.h>
 
+char hashTable[100];
+
 int hashFunc(char keyVal) {
-	int index = ( keyVal % 7 ) + 1;
+	int index = ( keyVal % 29 ) + 1;
 	return index;
 }
 
 int main() {
 	char keyVal[75];
-	int controlVar = 0, controlVarJ, index, hashTable[100], flag = 0;
+	int controlVar = 0, controlVarJ, index, flag = 0;
 	printf( "Enter the Key Value: " );
 	scanf( "%s", keyVal );
 	while(keyVal[controlVar] != '\0' ) {
@@ -18,7 +20,7 @@ int main() {
 		}
 		else {
 			controlVarJ = index + 1;
-			while( controlVarJ != index && !flag ) {
+			while( ( controlVarJ != index ) && ( flag == 0 ) ) {
 				if( hashTable[controlVarJ] < 0 ) {
 					hashTable[index] = keyVal[controlVar];
 				}
@@ -27,9 +29,15 @@ int main() {
 					return controlVarJ;
 				}
 				else {
-					controlVarJ = ( controlVarJ % 7 ) + 1;
+					if( controlVarJ == 99 ) {
+						controlVarJ = 0;
+					}
+					else {
+						controlVarJ ++;
+					}
 				}
 			}
 		}
+		controlVar ++;
 	}
 }
