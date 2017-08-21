@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 
-char hash_table[27];
+char hash_table[30];
 
 int hash_function(char a)
 {
@@ -16,13 +16,16 @@ printf("Input String");
 scanf("%s",string);
 for(i=0;i<strlen(string);i++)
 {
-position=hash_function(string[i]);
-if(hash_table[position]!=0)
- for(j=0;j<25;j++)
-  if(hash_table[j]==0)
-   position =j;
+ position=hash_function(string[i]);
+ if(hash_table[position]!=0)
+   for(j=0;j<20;j++)
+    if(hash_table[j]==0)
+      position =j;
  hash_table[position]=string[i];
-printf("%d ",position);
+ printf("%c",hash_table[position]);
+ printf("%d ",position);
 }
-
+for(i=0;i<30;i++)
+ printf("%c",hash_table[i]);
+printf(" ");
 }
