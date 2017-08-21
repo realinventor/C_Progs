@@ -22,8 +22,8 @@ for(i=0;i<strlen(string);i++)
     if(hash_table[j]==0)
       position =j;
  hash_table[position]=string[i];
- printf("%c",hash_table[position]);
- printf("%d ",position);
+ printf("%c",hash_table[position]); //These lines are just to check
+ printf("%d ",position);           //if the characters are added in the hashtable
 }
 for(i=0;i<30;i++)
  printf("%c",hash_table[i]);
