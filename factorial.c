@@ -9,3 +9,4 @@ void main() {
 	}
 	printf ( "Factorial of %d is %d\n", number, factorial );
 }
+//wow
